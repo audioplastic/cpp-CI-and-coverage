@@ -1,26 +1,24 @@
-language:
-  - cpp
-
-#before_install:
-#- if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
-#         echo "On LINUX from .travis.yml"
-#      && echo "Penguins!"
-#      ;
-#    else
-#         echo "Not on LINUX from .travis.yml"
-#      && echo "Can do brew and stuff!"
-#      ;
-#    fi
-
+language: cpp
 
 #install:
 #  - sudo pip install cpp-coveralls
 
-dist: trusty
+#dist: trusty
 
 os:
   - linux
-  - osx
+#  - osx
+
+before_install:
+- if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
+         echo "On LINUX from .travis.yml"
+      && echo "Penguins!"
+      ;
+    else
+         echo "Not on LINUX from .travis.yml"
+      && echo "Can do brew and stuff!"
+      ;
+    fi
 
 script:
   - mkdir build
