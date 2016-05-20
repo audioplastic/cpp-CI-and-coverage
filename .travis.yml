@@ -36,12 +36,10 @@ addons:
     - clang
     - cmake
 
-#after_success:
-#  - coveralls --root .. -E ".*external.*" -E ".*CMakeFiles.*" -E ".*test/.*.cpp.*"
-
 notifications:
   email: false
 
 after_success:
-  - coveralls --root .. --exclude extern --exclude CMakeFiles --exclude test --gcov-options '\-lp'
+  - coveralls --root .. -E ".*extern.*" -E ".*CMakeFiles.*" -E ".*test/.*.cpp.*"
+#  - coveralls --root .. --exclude extern --exclude CMakeFiles --exclude test --gcov-options '\-lp'
   - bash <(curl -s https://codecov.io/bash) #http://stackoverflow.com/questions/13116488/detailed-guide-on-using-gcov-with-cmake-cdash
