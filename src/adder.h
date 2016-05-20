@@ -9,6 +9,8 @@
 class adder {
 public:
     static int add(int, int);
+
+    static int divide(int, int);
 };
 
 

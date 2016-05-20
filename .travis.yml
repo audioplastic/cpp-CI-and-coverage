@@ -16,7 +16,7 @@ before_install:
 script:
   - mkdir build
   - cd build
-  - cmake ..
+  - cmake .. -DBUILD_COVERAGE=ON
   - make
   - test/all_tests
 

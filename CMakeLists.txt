@@ -4,12 +4,12 @@ project(decibelly)
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/extern/cmake-modules)
 set(PROJECT_TEST_NAME all_tests)
 
-if(CMAKE_COMPILER_IS_GNUCXX)
-    include(CodeCoverage)
-    SET(CMAKE_CXX_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
-    setup_target_for_coverage(  coverage                # name for custom target
-                                ${PROJECT_TEST_NAME}    # Test driver exe name
-                                coverage)               # Output directory
+option(BUILD_COVERAGE "Build with coverage." OFF)
+if (BUILD_COVERAGE)
+    if(CMAKE_COMPILER_IS_GNUCXX)
+        SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0 -fprofile-arcs -ftest-coverage")
+        set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fprofile-arcs -ftest-coverage")
+    endif()
 endif()
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")

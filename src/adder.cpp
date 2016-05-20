@@ -7,3 +7,9 @@
 int adder::add(int x, int y) {
     return x+y;
 }
+
+// deliberately no coverage
+int adder::divide(int x, int y) {
+    return x/y;
+}
+
