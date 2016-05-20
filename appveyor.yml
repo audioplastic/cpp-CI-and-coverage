@@ -12,7 +12,7 @@ build_script:
   - ps: cd build
   - echo %CD%
   - cmake ..
-  - cmake --build
+  - cmake --build .
 
 test_script:
   - echo %CD%
