@@ -9,16 +9,16 @@ os:
   - linux
 #  - osx
 
-#before_install:
-#- if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
-#         echo "On LINUX from .travis.yml"
-#      && echo "Penguins!"
-#      ;
-#    else
-#         echo "Not on LINUX from .travis.yml"
-#      && echo "Can do brew and stuff!"
-#      ;
-#    fi
+before_install:
+  - bash <(if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
+           echo "On LINUX from .travis.yml"
+        && echo "Penguins!"
+        ;
+      else
+           echo "Not on LINUX from .travis.yml"
+        && echo "Can do brew and stuff!"
+        ;
+      fi)
 
 script:
   - mkdir build
@@ -32,3 +32,6 @@ script:
 
 notifications:
   email: false
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
