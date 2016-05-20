@@ -1,0 +1,1 @@
+git submodule add repo_URL extern/whatever_you_like
