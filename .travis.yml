@@ -5,7 +5,7 @@ language:
 #  - sudo pip install cpp-coveralls
 
 before_install:
- - sudo apt-get upgrade cmake
+ - sudo apt-get -y upgrade cmake
 
 script:
   - mkdir build
