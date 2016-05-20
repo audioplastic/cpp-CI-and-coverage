@@ -14,7 +14,7 @@ before_install:
 #         echo "Not on LINUX from .travis.yml"
 #         echo "Can do brew and stuff!"
 #      fi)
-  - pip install cpp-coveralls
+  - sudo pip install cpp-coveralls
 
 script:
   - mkdir build
