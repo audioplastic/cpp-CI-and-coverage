@@ -43,5 +43,5 @@ notifications:
   email: false
 
 after_success:
-  - coveralls --exclude extern --exclude test --gcov-options '\-lp'
+  - coveralls --root .. --exclude extern --exclude CMakeFiles --exclude test --gcov-options '\-lp'
   - bash <(curl -s https://codecov.io/bash) #http://stackoverflow.com/questions/13116488/detailed-guide-on-using-gcov-with-cmake-cdash
