@@ -1,6 +1,6 @@
 build_script:
   - echo %CD%
-  - mkdir foo
+  - mkdir build
   - echo %CD%
   - ps: cd build
   - echo %CD%
