@@ -1,19 +1,16 @@
-language: cpp
+sudo: false # The explicit sudo: false will let it build in Docker (for speed) even if you have a pre-docker repo, according to Travis support
 
-#dist: trusty
+language: cpp
 
 os:
   - linux
 #  - osx
 
+compiler:
+  - gcc
+#  - clang
+
 before_install:
-#  - bash <(if [ ${TRAVIS_OS_NAME} eq "linux" ] then
-#        echo "On LINUX from .travis.yml"
-#        echo "Penguins!"
-#      else
-#         echo "Not on LINUX from .travis.yml"
-#         echo "Can do brew and stuff!"
-#      fi)
   - sudo pip install cpp-coveralls
 
 script:
@@ -23,6 +20,19 @@ script:
   - make
   - test/all_tests
 
+# move on from standard crusty travis default compiler
+# http://stackoverflow.com/a/30925448/276193
+install:
+- if [ "$CXX" = "g++" ]; then export CXX="g++-4.8" CC="gcc-4.8"; fi
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - gcc-4.8
+    - g++-4.8
+    - clang
+
 #after_success:
 #  - coveralls --root .. -E ".*external.*" -E ".*CMakeFiles.*" -E ".*test/.*.cpp.*"
 
@@ -31,4 +41,4 @@ notifications:
 
 after_success:
   - coveralls --exclude extern --exclude test --gcov-options '\-lp'
-  - bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash) #http://stackoverflow.com/questions/13116488/detailed-guide-on-using-gcov-with-cmake-cdash
