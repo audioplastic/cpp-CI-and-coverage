@@ -10,15 +10,16 @@ os:
 #  - osx
 
 before_install:
-#  - bash <(if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
-#           echo "On LINUX from .travis.yml"
-#        && echo "Penguins!"
-#        ;
-#      else
-#           echo "Not on LINUX from .travis.yml"
-#        && echo "Can do brew and stuff!"
-#        ;
-#      fi)
+  - bash <(if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
+           echo "On LINUX from .travis.yml"
+        && echo "Penguins!"
+        ;
+      else
+           echo "Not on LINUX from .travis.yml"
+        && echo "Can do brew and stuff!"
+        ;
+      fi)
+  - pip install cpp-coveralls
 
 script:
   - mkdir build
@@ -34,4 +35,5 @@ notifications:
   email: false
 
 after_success:
+  - coveralls --exclude lib --exclude tests --gcov-options '\-lp'
   - bash <(curl -s https://codecov.io/bash)
