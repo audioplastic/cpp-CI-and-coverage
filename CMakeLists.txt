@@ -5,7 +5,7 @@ project(decibelly)
 #set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG=1")
 #set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DDEBUG=0")
 
-add_executable(thing src/dummy.cpp)
+add_subdirectory(src)
 
 # Options. Turn on with 'cmake -DBUILD_TESTS=ON/OFF'.
 option(BUILD_TESTS "Build all tests." ON) # Makes boolean 'test' available.

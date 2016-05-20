@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
+#include "adder.h"
 
-TEST(foo, boo) {
-    ASSERT_TRUE(true);
+TEST(adder, add) {
+    EXPECT_EQ(adder::add(5,3), 8);
 }
