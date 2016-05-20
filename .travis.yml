@@ -10,15 +10,15 @@ os:
 #  - osx
 
 before_install:
-  - bash <(if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
-           echo "On LINUX from .travis.yml"
-        && echo "Penguins!"
-        ;
-      else
-           echo "Not on LINUX from .travis.yml"
-        && echo "Can do brew and stuff!"
-        ;
-      fi)
+#  - bash <(if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
+#           echo "On LINUX from .travis.yml"
+#        && echo "Penguins!"
+#        ;
+#      else
+#           echo "Not on LINUX from .travis.yml"
+#        && echo "Can do brew and stuff!"
+#        ;
+#      fi)
 
 script:
   - mkdir build
