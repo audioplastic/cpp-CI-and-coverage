@@ -4,6 +4,9 @@ language:
 #install:
 #  - sudo pip install cpp-coveralls
 
+before_install:
+ - sudo apt-get upgrade cmake
+
 script:
   - mkdir build
   - cd build
