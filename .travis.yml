@@ -30,5 +30,5 @@ notifications:
   email: false
 
 after_success:
-  - coveralls --exclude lib --exclude tests --gcov-options '\-lp'
+  - coveralls --exclude extern --exclude test --gcov-options '\-lp'
   - bash <(curl -s https://codecov.io/bash)
