@@ -1,3 +1,7 @@
+[Bb]uild/
+[Bb]uilds/
+.idea/
+
 # Compiled Object files
 *.slo
 *.lo
