@@ -6,10 +6,17 @@ set(PROJECT_TEST_NAME all_tests)
 
 option(BUILD_COVERAGE "Build with coverage." OFF)
 if (BUILD_COVERAGE)
+
     if(CMAKE_COMPILER_IS_GNUCXX)
-        SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0 -fprofile-arcs -ftest-coverage")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0 -fprofile-arcs -ftest-coverage -Wall -W -Wshadow -Wunused-variable -Wunused-parameter -Wunused-function -Wunused -Wno-system-headers -Wno-deprecated -Woverloaded-virtual -Wwrite-strings")
         set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fprofile-arcs -ftest-coverage")
     endif()
+
+    if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+        # using regular Clang or AppleClang
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage")
+    endif()
+
 endif()
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
