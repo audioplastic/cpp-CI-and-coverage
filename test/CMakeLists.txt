@@ -1,9 +1,9 @@
-add_executable( all_tests
+add_executable( ${PROJECT_TEST_NAME}
         demo_test.cpp
         )
 
-target_link_libraries(all_tests gtest gtest_main decibelly)
-target_include_directories(all_tests PUBLIC ${CMAKE_SOURCE_DIR}/src)
+target_link_libraries(${PROJECT_TEST_NAME} gtest gtest_main decibelly)
+target_include_directories(${PROJECT_TEST_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/src)
 
 add_test( NAME     runtests
-          COMMAND  all_tests )
+          COMMAND  ${PROJECT_TEST_NAME} )

@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 2.8.11) #for target_include_directories
 project(decibelly)
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/extern/cmake-modules)
+set(PROJECT_TEST_NAME all_tests)
 
 if(CMAKE_COMPILER_IS_GNUCXX)
     include(CodeCoverage)
