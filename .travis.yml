@@ -34,13 +34,13 @@ addons:
 script:
   - mkdir build
   - cd build
-  - cmake .. -DBUILD_TESTS=ON -DCOVERALLS=ON -DCMAKE_BUILD_TYPE=Debug
+  - cmake .. -DBUILD_TESTS=ON -DCOVERALLS=OFF -DCMAKE_BUILD_TYPE=Debug
   - cmake --build .
-  - cmake --build . --target coveralls
-  - cat coveralls.json
+#  - cmake --build . --target coveralls
+#  - cat coveralls.json
   - test/all_tests
-  - ls -l src
-  - bash <(curl -s https://codecov.io/bash) -psrc
+#  - ls -l src
+#  - bash <(curl -s https://codecov.io/bash) -psrc
 
 notifications:
   email: false
