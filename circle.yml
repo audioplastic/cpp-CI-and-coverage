@@ -3,6 +3,10 @@ checkout:
     - git submodule sync
     - git submodule update --init
 
+dependencies:
+  pre:
+    - sudo apt-get update; sudo apt-get install cmake
+
 test:
   pre:
     - mkdir build
