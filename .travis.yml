@@ -21,19 +21,20 @@ before_install:
 # move on from standard crusty travis default compiler
 # http://stackoverflow.com/a/30925448/276193
 # http://stackoverflow.com/a/33203355/276193
+# https://github.com/travis-ci/apt-package-whitelist/blob/master/ubuntu-precise
 install:
 - if [ "$CXX" = "g++" ]; then export CXX="g++-4.8" CC="gcc-4.8"; fi
 addons:
   apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    - kalakris-cmake
+#    sources:
+#    - ubuntu-toolchain-r-test
+#    - kalakris-cmake
     packages:
 #    - gcc-4.8
-    - g++-4.8
+    - g++-5
     - clang
     - cmake
-    - gcov-4.8
+#    - gcov-4.8
 
 script:
   - mkdir build
