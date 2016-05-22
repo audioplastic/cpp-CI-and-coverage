@@ -12,7 +12,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DDEBUG=0")
 
 
 if (COVERALLS)
-    list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/extern/coveralls-cmake)
+    list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/extern/coveralls-cmake/cmake)
     include(Coveralls)
     coveralls_turn_on_coverage()
 endif()
