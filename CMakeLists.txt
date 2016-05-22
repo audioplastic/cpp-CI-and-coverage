@@ -70,6 +70,17 @@ if (COVERALLS)
             DIRECTORY ${CMAKE_SOURCE_DIR}/src
             DEFINITION LIB_SRC)
 
+    #    http://stackoverflow.com/a/27630120/276193
+    FUNCTION(PREPEND var prefix)
+        SET(listVar "")
+        FOREACH(f ${ARGN})
+            LIST(APPEND listVar "${prefix}/${f}")
+        ENDFOREACH(f)
+        SET(${var} "${listVar}" PARENT_SCOPE)
+    ENDFUNCTION(PREPEND)
+
+    PREPEND(LIB_SRC src/ ${LIB_SRC})
+
     coveralls_setup(
             "${LIB_SRC}"
             ${COVERALLS_UPLOAD}
