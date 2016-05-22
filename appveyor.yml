@@ -19,4 +19,7 @@ test_script:
   - ps: cd test
   - echo %CD%
   - dir
+  - ps: cd Debug
+  - echo %CD%
+  - dir
   - all_tests
