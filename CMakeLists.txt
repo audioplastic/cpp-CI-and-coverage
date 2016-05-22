@@ -48,3 +48,14 @@ endif()
 #
 #endif()
 
+if (COVERALLS)
+    file(GLOB MY_LIB_SRC
+            "src/*.h"
+            "src/*.cpp"
+            )
+
+    coveralls_setup(
+            "${MY_LIB_SRC}"
+            ${COVERALLS_UPLOAD}
+            "${PROJECT_SOURCE_DIR}/extern/coveralls-cmake/cmake")
+endif()
