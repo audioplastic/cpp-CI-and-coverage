@@ -16,4 +16,7 @@ build_script:
 
 test_script:
   - echo %CD%
-  - test\all_tests
+  - ps: cd test
+  - echo %CD%
+  - dir
+  - all_tests
