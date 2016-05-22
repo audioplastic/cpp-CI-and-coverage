@@ -32,7 +32,7 @@ addons:
 #    - gcc-4.8
     - g++-4.8
 #    - clang
-    - gcov
+    - gcov-4.6
     - cmake
 
 script:
