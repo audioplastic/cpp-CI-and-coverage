@@ -68,10 +68,10 @@ if (COVERALLS)
 
     get_directory_property(LIB_SRC
             DIRECTORY ${CMAKE_SOURCE_DIR}/src
-            DEFINITION SOURCE_TO_COVER)
+            DEFINITION LIB_SRC)
 
     coveralls_setup(
-            "${SOURCE_TO_COVER}"
+            "${LIB_SRC}"
             ${COVERALLS_UPLOAD}
             "${PROJECT_SOURCE_DIR}/extern/coveralls-cmake/cmake")
 endif()
