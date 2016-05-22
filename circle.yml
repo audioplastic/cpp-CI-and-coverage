@@ -6,7 +6,8 @@ checkout:
 test:
   pre:
     - mkdir build && cd build
-    - echo pwd
+    - pwd
+    - ls -l
     - cmake .. -DBUILD_TESTS=ON -DCOVERALLS=OFF -DCMAKE_BUILD_TYPE=Debug
     - cmake --build .
   override:
