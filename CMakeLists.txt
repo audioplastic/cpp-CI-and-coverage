@@ -31,22 +31,6 @@ if (COVERALLS)
     coveralls_turn_on_coverage()
 endif()
 
-add_subdirectory(src)
-
-
-# Options. Turn on with 'cmake -DBUILD_TESTS=ON/OFF'.
-if (BUILD_TESTS)
-    set(PROJECT_TEST_NAME all_tests)
-    set(BUILD_GTEST ON)
-    set(BUILD_GMOCK OFF)
-    add_subdirectory(extern/gtest)
-    include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
-
-    enable_testing()
-    add_subdirectory(test)
-endif()
-
-
 if (CODECOV)
     if(NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
         message(FATAL_ERROR "Codecov: Code coverage results with an optimised (non-Debug) build may be misleading! Add -DCMAKE_BUILD_TYPE=Debug")
@@ -65,26 +49,26 @@ if (CODECOV)
     endif()
 endif()
 
+add_subdirectory(src)
+
+if (BUILD_TESTS)
+    set(PROJECT_TEST_NAME all_tests)
+    set(BUILD_GTEST ON)
+    set(BUILD_GMOCK OFF)
+    add_subdirectory(extern/gtest)
+    include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
+
+    enable_testing()
+    add_subdirectory(test)
+endif()
+
+
 if (COVERALLS)
+#     TODO: find a nicer way than globbing
     file(GLOB MY_LIB_SRC
             "src/*.h"
             "src/*.cpp"
             )
-
-#    get_directory_property(LIB_SRC
-#            DIRECTORY ${CMAKE_SOURCE_DIR}/src
-#            DEFINITION LIB_SRC)
-#
-#    #    http://stackoverflow.com/a/27630120/276193
-#    FUNCTION(PREPEND var prefix)
-#        SET(listVar "")
-#        FOREACH(f ${ARGN})
-#            LIST(APPEND listVar "${prefix}/${f}")
-#        ENDFOREACH(f)
-#        SET(${var} "${listVar}" PARENT_SCOPE)
-#    ENDFUNCTION(PREPEND)
-#
-#    PREPEND(LIB_SRC src/ ${LIB_SRC})
 
     coveralls_setup(
             "${MY_LIB_SRC}"
