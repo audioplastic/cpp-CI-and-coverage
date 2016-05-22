@@ -61,13 +61,17 @@ endif()
 #endif()
 
 if (COVERALLS)
-    file(GLOB MY_LIB_SRC
-            "src/*.h"
-            "src/*.cpp"
-            )
+#    file(GLOB MY_LIB_SRC
+#            "src/*.h"
+#            "src/*.cpp"
+#            )
+
+    get_directory_property(LIB_SRC
+            DIRECTORY ${CMAKE_SOURCE_DIR}/src
+            DEFINITION SOURCE_TO_COVER)
 
     coveralls_setup(
-            "${MY_LIB_SRC}"
+            "${SOURCE_TO_COVER}"
             ${COVERALLS_UPLOAD}
             "${PROJECT_SOURCE_DIR}/extern/coveralls-cmake/cmake")
 endif()

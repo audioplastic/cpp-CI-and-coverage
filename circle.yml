@@ -9,9 +9,7 @@ dependencies:
 
 test:
   pre:
-    - g++ -v
-    - gcov -version
-    - cmake -version
+    - g++ -v && gcov -version && cmake -version
     - mkdir build
     - cd build && cmake .. -DBUILD_TESTS=ON -DCOVERALLS=OFF -DCMAKE_BUILD_TYPE=Debug
     - cd build && cmake --build .
