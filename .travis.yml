@@ -1,4 +1,4 @@
-sudo: false # The explicit sudo: false will let it build in Docker (for speed) even if you have a pre-docker repo, according to Travis support
+sudo: true # The explicit sudo: false will let it build in Docker (for speed) even if you have a pre-docker repo, according to Travis support
 
 language: cpp
 
