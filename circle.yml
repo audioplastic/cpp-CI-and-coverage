@@ -11,7 +11,7 @@ test:
   pre:
     - g++ -v && gcov -version && cmake -version
     - mkdir build
-    - cd build && cmake .. -DBUILD_TESTS=ON -DCODEVOV=ON -DCOVERALLS=OFF -DCMAKE_BUILD_TYPE=Debug
+    - cd build && cmake .. -DBUILD_TESTS=ON -DCODECOV=ON -DCOVERALLS=OFF -DCMAKE_BUILD_TYPE=Debug
     - cd build && cmake --build .
   override:
     - mkdir -p $CIRCLE_TEST_REPORTS/gtest
