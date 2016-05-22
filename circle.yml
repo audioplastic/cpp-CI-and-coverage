@@ -9,8 +9,12 @@ dependencies:
 
 test:
   pre:
+    - g++ -v
+    - gcov -version
+    - cmake -version
     - mkdir build
     - cd build && cmake .. -DBUILD_TESTS=ON -DCOVERALLS=OFF -DCMAKE_BUILD_TYPE=Debug
     - cd build && cmake --build .
   override:
-    - build/test/all_tests --gtest_output=xml:$CIRCLE_TEST_REPORTS/gtest.xml
+    - mkdir -p $CIRCLE_TEST_REPORTS/gtest
+    - build/test/all_tests --gtest_output=xml:$CIRCLE_TEST_REPORTS/gtest/gtest.xml
