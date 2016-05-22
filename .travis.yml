@@ -7,8 +7,8 @@ os:
 #  - osx
 
 compiler:
-#  - gcc
-  - clang
+  - gcc #gcc with C++11 (4.8) support gives me some mismatched gcov version errors for coverage
+#  - clang
 
 before_install:
   - export COVERALLS_SERVICE_NAME=travis-ci
@@ -33,6 +33,7 @@ addons:
     - g++-4.8
     - clang
     - cmake
+    - lcov
 
 script:
   - mkdir build
