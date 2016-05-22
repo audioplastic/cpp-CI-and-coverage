@@ -16,7 +16,4 @@ build_script:
 
 test_script:
   - echo %CD%
-  - ps: cd build
-  - echo %CD%
   - ctest
-  - echo %CD%

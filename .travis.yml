@@ -7,8 +7,8 @@ os:
 #  - osx
 
 compiler:
-  - gcc #gcc with C++11 (4.8) support gives me some mismatched gcov version errors for coverage
-#  - clang
+#  - gcc #gcc with C++11 (4.8+) support gives me some mismatched gcov version errors for coverage
+  - clang
 
 before_install:
   - export COVERALLS_SERVICE_NAME=travis-ci
@@ -19,8 +19,6 @@ before_install:
 #  - sudo apt-get install -y -qq lcov curl
 
 # move on from standard crusty travis default compiler
-# http://stackoverflow.com/a/30925448/276193
-# http://stackoverflow.com/a/33203355/276193
 # https://github.com/travis-ci/apt-package-whitelist/blob/master/ubuntu-precise
 install:
 - if [ "$CXX" = "g++" ]; then export CXX="g++-5" CC="gcc-5"; fi
@@ -30,11 +28,10 @@ addons:
     - ubuntu-toolchain-r-test
     - kalakris-cmake
     packages:
-#    - gcc-4.8
+#    - gcc-5
     - g++-5
     - clang
     - cmake
-#    - gcov-4.8
 
 script:
   - mkdir build
@@ -51,4 +48,4 @@ notifications:
 after_success:
 #  - coveralls --root .. -E ".*extern.*" -E ".*CMakeFiles.*" -E ".*test/.*.cpp.*"
 #  - coveralls --root .. --exclude extern --exclude CMakeFiles --exclude test --gcov-options '\-lp'
-  - bash <(curl -s https://codecov.io/bash -ssrc) #http://stackoverflow.com/questions/13116488/detailed-guide-on-using-gcov-with-cmake-cdash
+  - bash <(curl -s https://codecov.io/bash -gsrc) #http://stackoverflow.com/questions/13116488/detailed-guide-on-using-gcov-with-cmake-cdash
