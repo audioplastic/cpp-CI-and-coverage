@@ -45,8 +45,9 @@ notifications:
 
 after_success:
 #  - bash <(curl -s https://codecov.io/bash -gsrc) #http://stackoverflow.com/questions/13116488/detailed-guide-on-using-gcov-with-cmake-cdash
-#  - curl -s https://codecov.io/bash >> codecov
-#  - chmod +x codecov
-#  - ./codecov -gtest/*
-  - cd build
-  - bash <(curl -s https://codecov.io/bash) -psrc
+  - pwd
+  - curl -s https://codecov.io/bash >> codecov
+  - chmod +x codecov
+  - ./codecov -psrc
+#  - cd build
+#  - bash <(curl -s https://codecov.io/bash) -psrc
