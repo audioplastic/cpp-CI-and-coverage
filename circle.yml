@@ -4,10 +4,10 @@ checkout:
     - git submodule update --init
 
 test:
-    pre:
-        - mkdir build \
-           && cd build \
-           && cmake .. -DBUILD_TESTS=ON -DCOVERALLS=OFF -DCMAKE_BUILD_TYPE=Debug \
-           && cmake --build .
-    override:
-        - build/test/all_tests
+  pre:
+    - mkdir build && cd build
+    - echo pwd
+    - cmake .. -DBUILD_TESTS=ON -DCOVERALLS=OFF -DCMAKE_BUILD_TYPE=Debug
+    - cmake --build .
+  override:
+    - build/test/all_tests
