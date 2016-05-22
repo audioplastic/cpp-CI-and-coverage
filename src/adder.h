@@ -16,7 +16,7 @@ public:
 };
 
 // deliberately no coverage and in header
-int mult(int x, int y) {
+int multip(int x, int y) {
     return x*y;
 }
 
