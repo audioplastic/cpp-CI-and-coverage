@@ -27,7 +27,7 @@ install:
 addons:
   apt:
     sources:
-#    - ubuntu-toolchain-r-test
+    - ubuntu-toolchain-r-test
     - kalakris-cmake
     packages:
 #    - gcc-4.8
