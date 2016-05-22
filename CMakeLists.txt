@@ -61,28 +61,28 @@ endif()
 #endif()
 
 if (COVERALLS)
-#    file(GLOB MY_LIB_SRC
-#            "src/*.h"
-#            "src/*.cpp"
-#            )
+    file(GLOB MY_LIB_SRC
+            "src/*.h"
+            "src/*.cpp"
+            )
 
-    get_directory_property(LIB_SRC
-            DIRECTORY ${CMAKE_SOURCE_DIR}/src
-            DEFINITION LIB_SRC)
-
-    #    http://stackoverflow.com/a/27630120/276193
-    FUNCTION(PREPEND var prefix)
-        SET(listVar "")
-        FOREACH(f ${ARGN})
-            LIST(APPEND listVar "${prefix}/${f}")
-        ENDFOREACH(f)
-        SET(${var} "${listVar}" PARENT_SCOPE)
-    ENDFUNCTION(PREPEND)
-
-    PREPEND(LIB_SRC src/ ${LIB_SRC})
+#    get_directory_property(LIB_SRC
+#            DIRECTORY ${CMAKE_SOURCE_DIR}/src
+#            DEFINITION LIB_SRC)
+#
+#    #    http://stackoverflow.com/a/27630120/276193
+#    FUNCTION(PREPEND var prefix)
+#        SET(listVar "")
+#        FOREACH(f ${ARGN})
+#            LIST(APPEND listVar "${prefix}/${f}")
+#        ENDFOREACH(f)
+#        SET(${var} "${listVar}" PARENT_SCOPE)
+#    ENDFUNCTION(PREPEND)
+#
+#    PREPEND(LIB_SRC src/ ${LIB_SRC})
 
     coveralls_setup(
-            "${LIB_SRC}"
+            "${MY_LIB_SRC}"
             ${COVERALLS_UPLOAD}
             "${PROJECT_SOURCE_DIR}/extern/coveralls-cmake/cmake")
 endif()
