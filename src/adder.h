@@ -11,13 +11,7 @@ public:
     static int add(int, int);
 
     static int divide(int, int);
-
-// deliberately no coverage and in header
-    int multip(int x, int y) {
-        return x*y;
-    }
 };
-
 
 
 #endif //DECIBELLY_ADDER_H
