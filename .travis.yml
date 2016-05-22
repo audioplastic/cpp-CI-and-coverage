@@ -23,7 +23,7 @@ before_install:
 # http://stackoverflow.com/a/33203355/276193
 # https://github.com/travis-ci/apt-package-whitelist/blob/master/ubuntu-precise
 install:
-- if [ "$CXX" = "g++" ]; then export CXX="g++-4.8" CC="gcc-4.8"; fi
+- if [ "$CXX" = "g++" ]; then export CXX="g++-5" CC="gcc-5"; fi
 addons:
   apt:
     sources:
