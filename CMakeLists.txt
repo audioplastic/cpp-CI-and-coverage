@@ -53,5 +53,5 @@ if (COVERALLS)
     coveralls_setup(
             "${LIB_SRC}"
             ${COVERALLS_UPLOAD}
-            "${PROJECT_SOURCE_DIR}/coveralls-cmake/cmake")
+            "${PROJECT_SOURCE_DIR}/extern/coveralls-cmake/cmake")
 endif()

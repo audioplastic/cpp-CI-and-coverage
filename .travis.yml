@@ -1,4 +1,4 @@
-sudo: true # The explicit sudo: false will let it build in Docker (for speed) even if you have a pre-docker repo, according to Travis support
+sudo: false # The explicit sudo: false will let it build in Docker (for speed) even if you have a pre-docker repo, according to Travis support
 
 language: cpp
 
@@ -28,9 +28,9 @@ addons:
     - ubuntu-toolchain-r-test
     - kalakris-cmake
     packages:
-    - gcc-4.8
+#    - gcc-4.8
     - g++-4.8
-    - clang
+#    - clang
     - cmake
 
 script:
