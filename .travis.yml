@@ -10,8 +10,9 @@ compiler:
   - gcc
 #  - clang
 
-#before_install:
-#  - sudo pip install cpp-coveralls
+before_install:
+  - export COVERALLS_SERVICE_NAME=travis-ci
+  - export COVERALLS_REPO_TOKEN=XTketTK9zlvjDRh6QUHSH2Mb2u1hba2BD
 
 #install:
 #  - sudo apt-get update -qq
