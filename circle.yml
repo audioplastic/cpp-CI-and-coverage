@@ -1,0 +1,13 @@
+checkout:
+  post:
+    - git submodule sync
+    - git submodule update --init
+
+test:
+    pre:
+        - mkdir build
+        - cd build
+        - cmake .. -DBUILD_TESTS=ON -DCOVERALLS=OFF -DCMAKE_BUILD_TYPE=Debug
+        - cmake --build .
+    override:
+        - test/all_tests

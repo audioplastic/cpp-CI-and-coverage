@@ -11,6 +11,8 @@ public:
     static int add(int, int);
 
     static int divide(int, int);
+
+    static int mult(int, int);
 };
 
 
