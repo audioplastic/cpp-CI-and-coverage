@@ -12,7 +12,7 @@ public:
 
     static int divide(int, int);
 
-    static int mult(int, int);
+    static int multi(int, int);
 };
 
 

@@ -13,7 +13,7 @@ int adder::divide(int x, int y) {
     return x/y;
 }
 
-int adder::mult(int x, int y) {
+int adder::multi(int x, int y) {
     return x*y;
 }
 
