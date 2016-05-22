@@ -5,8 +5,9 @@ option(BUILD_TESTS "Build all tests." ON)
 option(COVERALLS "Turn on coveralls support" OFF) #better than pyton version as no sudo pip install is neededtouch sr
 option(COVERALLS_UPLOAD "Upload the generated coveralls json" ON)
 
-
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+if (NOT MSVC) #Reduce some CI warnings
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+endif ()
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG=1")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DDEBUG=0")
 

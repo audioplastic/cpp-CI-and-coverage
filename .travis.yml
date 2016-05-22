@@ -14,9 +14,7 @@ before_install:
   - export COVERALLS_SERVICE_NAME=travis-ci
   - export COVERALLS_REPO_TOKEN=XTketTK9zlvjDRh6QUHSH2Mb2u1hba2BD
 
-#install:
-#  - sudo apt-get update -qq
-#  - sudo apt-get install -y -qq lcov curl
+
 
 # move on from standard crusty travis default compiler
 # https://github.com/travis-ci/apt-package-whitelist/blob/master/ubuntu-precise
@@ -46,6 +44,4 @@ notifications:
   email: false
 
 after_success:
-#  - coveralls --root .. -E ".*extern.*" -E ".*CMakeFiles.*" -E ".*test/.*.cpp.*"
-#  - coveralls --root .. --exclude extern --exclude CMakeFiles --exclude test --gcov-options '\-lp'
   - bash <(curl -s https://codecov.io/bash -gsrc) #http://stackoverflow.com/questions/13116488/detailed-guide-on-using-gcov-with-cmake-cdash
