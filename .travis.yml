@@ -7,8 +7,8 @@ os:
 #  - osx
 
 compiler:
-#  - gcc
-  - clang
+  - gcc
+#  - clang
 
 before_install:
   - export COVERALLS_SERVICE_NAME=travis-ci
@@ -22,7 +22,7 @@ before_install:
 # http://stackoverflow.com/a/30925448/276193
 # http://stackoverflow.com/a/33203355/276193
 install:
-- if [ "$CXX" = "g++" ]; then export CXX="g++-4.8" CC="gcc-4.8"; fi
+#- if [ "$CXX" = "g++" ]; then export CXX="g++-4.8" CC="gcc-4.8"; fi
 addons:
   apt:
     sources:
@@ -30,8 +30,8 @@ addons:
     - kalakris-cmake
     packages:
 #    - gcc-4.8
-    - g++-4.8
-    - clang
+#    - g++-4.8
+#    - clang
     - cmake
 
 script:
