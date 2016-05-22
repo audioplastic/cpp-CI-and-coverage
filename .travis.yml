@@ -14,8 +14,6 @@ before_install:
   - export COVERALLS_SERVICE_NAME=travis-ci
   - export COVERALLS_REPO_TOKEN=XTketTK9zlvjDRh6QUHSH2Mb2u1hba2BD
 
-
-
 # move on from standard crusty travis default compiler
 # https://github.com/travis-ci/apt-package-whitelist/blob/master/ubuntu-precise
 install:
@@ -34,22 +32,13 @@ addons:
 script:
   - mkdir build
   - cd build
-  - cmake .. -DBUILD_TESTS=ON -DCOVERALLS=OFF -DCMAKE_BUILD_TYPE=Debug
+  - cmake .. -DBUILD_TESTS=ON -DCOVERALLS=ON -DCMAKE_BUILD_TYPE=Debug
   - cmake --build .
-#  - cmake --build . --target coveralls
-#  - cat coveralls.json
+  - cmake --build . --target coveralls
+  - cat coveralls.json
   - test/all_tests
-#  - ls -l src
-#  - bash <(curl -s https://codecov.io/bash) -psrc
+
 
 notifications:
   email: false
 
-after_success:
-#  - bash <(curl -s https://codecov.io/bash -gsrc) #http://stackoverflow.com/questions/13116488/detailed-guide-on-using-gcov-with-cmake-cdash
-#  - pwd && ls
-#  - curl -s https://codecov.io/bash >> codecov
-#  - chmod +x codecov
-#  - ./codecov -p ./src
-#  - cd build
-#  - bash <(curl -s https://codecov.io/bash) -psrc

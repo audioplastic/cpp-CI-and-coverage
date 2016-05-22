@@ -4,6 +4,8 @@ project(decibelly)
 option(BUILD_TESTS "Build all tests." ON)
 option(COVERALLS "Turn on coveralls support" OFF) #better than pyton version as no sudo pip install is neededtouch sr
 option(COVERALLS_UPLOAD "Upload the generated coveralls json" ON)
+option(CODECOV "Build with coverage." OFF)
+
 
 if (NOT MSVC) #Reduce some CI warnings
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
@@ -45,20 +47,16 @@ if (BUILD_TESTS)
 endif()
 
 
-# Options. Turn on with 'cmake -DBUILD_COVERAGE=ON/OFF'.
-#option(BUILD_COVERAGE "Build with coverage." OFF)
-#if (BUILD_COVERAGE)
-#
-#    if(CMAKE_COMPILER_IS_GNUCXX)
-#        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0 -fprofile-arcs -ftest-coverage -Wall -W -Wshadow -Wunused-variable -Wunused-parameter -Wunused-function -Wunused -Wno-system-headers -Wno-deprecated -Woverloaded-virtual -Wwrite-strings")
-#        set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fprofile-arcs -ftest-coverage")
-#    endif()
-#
-#    if (CMAKE_CXX_COMPILER_ID MATCHES "Clang") # using regular Clang or AppleClang
-#        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage")
-#    endif()
-#
-#endif()
+if (CODECOV)
+    if(CMAKE_COMPILER_IS_GNUCXX)
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0 -fprofile-arcs -ftest-coverage -Wall -W -Wshadow -Wunused-variable -Wunused-parameter -Wunused-function -Wunused -Wno-system-headers -Wno-deprecated -Woverloaded-virtual -Wwrite-strings")
+        set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fprofile-arcs -ftest-coverage")
+    endif()
+
+    if (CMAKE_CXX_COMPILER_ID MATCHES "Clang") # using regular Clang or AppleClang
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage")
+    endif()
+endif()
 
 if (COVERALLS)
     file(GLOB MY_LIB_SRC
