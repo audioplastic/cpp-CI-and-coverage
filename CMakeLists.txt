@@ -1,33 +1,28 @@
 cmake_minimum_required(VERSION 2.8.11) #for target_include_directories
 project(decibelly)
 
-list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/extern/cmake-modules)
-set(PROJECT_TEST_NAME all_tests)
+option(BUILD_TESTS "Build all tests." ON)
+option(COVERALLS "Turn on coveralls support" OFF)
+option(COVERALLS_UPLOAD "Upload the generated coveralls json" ON)
 
-option(BUILD_COVERAGE "Build with coverage." OFF)
-if (BUILD_COVERAGE)
-
-    if(CMAKE_COMPILER_IS_GNUCXX)
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0 -fprofile-arcs -ftest-coverage -Wall -W -Wshadow -Wunused-variable -Wunused-parameter -Wunused-function -Wunused -Wno-system-headers -Wno-deprecated -Woverloaded-virtual -Wwrite-strings")
-        set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fprofile-arcs -ftest-coverage")
-    endif()
-
-    if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-        # using regular Clang or AppleClang
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage")
-    endif()
-
-endif()
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG=1")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DDEBUG=0")
 
+
+if (COVERALLS)
+    list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/extern/coveralls-cmake)
+    include(Coveralls)
+    coveralls_turn_on_coverage()
+endif()
+
 add_subdirectory(src)
 
+
 # Options. Turn on with 'cmake -DBUILD_TESTS=ON/OFF'.
-option(BUILD_TESTS "Build all tests." ON) # Makes boolean 'test' available.
 if (BUILD_TESTS)
+    set(PROJECT_TEST_NAME all_tests)
     set(BUILD_GTEST ON)
     set(BUILD_GMOCK OFF)
     add_subdirectory(extern/gtest)
@@ -35,4 +30,28 @@ if (BUILD_TESTS)
 
     enable_testing()
     add_subdirectory(test)
+endif()
+
+
+# Options. Turn on with 'cmake -DBUILD_COVERAGE=ON/OFF'.
+#option(BUILD_COVERAGE "Build with coverage." OFF)
+#if (BUILD_COVERAGE)
+#
+#    if(CMAKE_COMPILER_IS_GNUCXX)
+#        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0 -fprofile-arcs -ftest-coverage -Wall -W -Wshadow -Wunused-variable -Wunused-parameter -Wunused-function -Wunused -Wno-system-headers -Wno-deprecated -Woverloaded-virtual -Wwrite-strings")
+#        set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fprofile-arcs -ftest-coverage")
+#    endif()
+#
+#    if (CMAKE_CXX_COMPILER_ID MATCHES "Clang") # using regular Clang or AppleClang
+#        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage")
+#    endif()
+#
+#endif()
+
+
+if (COVERALLS)
+    coveralls_setup(
+            "${LIB_SRC}"
+            ${COVERALLS_UPLOAD}
+            "${PROJECT_SOURCE_DIR}/coveralls-cmake/cmake")
 endif()

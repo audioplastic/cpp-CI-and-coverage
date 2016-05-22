@@ -1,4 +1,4 @@
-sudo: true # The explicit sudo: false will let it build in Docker (for speed) even if you have a pre-docker repo, according to Travis support
+sudo: false # The explicit sudo: false will let it build in Docker (for speed) even if you have a pre-docker repo, according to Travis support
 
 language: cpp
 
@@ -10,15 +10,12 @@ compiler:
   - gcc
 #  - clang
 
-before_install:
-  - sudo pip install cpp-coveralls
+#before_install:
+#  - sudo pip install cpp-coveralls
 
-script:
-  - mkdir build
-  - cd build
-  - cmake .. -DBUILD_COVERAGE=ON
-  - make
-  - test/all_tests
+#install:
+#  - sudo apt-get update -qq
+#  - sudo apt-get install -y -qq lcov curl
 
 # move on from standard crusty travis default compiler
 # http://stackoverflow.com/a/30925448/276193
@@ -36,10 +33,18 @@ addons:
     - clang
     - cmake
 
+script:
+  - mkdir build
+  - cd build
+  - cmake .. -DBUILD_TESTS=ON -DCOVERALLS=ON -DCMAKE_BUILD_TYPE=Debug
+  - cmake --build .
+  - cmake --build . --target coveralls
+  - test/all_tests
+
 notifications:
   email: false
 
 after_success:
-  - coveralls --root .. -E ".*extern.*" -E ".*CMakeFiles.*" -E ".*test/.*.cpp.*"
+#  - coveralls --root .. -E ".*extern.*" -E ".*CMakeFiles.*" -E ".*test/.*.cpp.*"
 #  - coveralls --root .. --exclude extern --exclude CMakeFiles --exclude test --gcov-options '\-lp'
   - bash <(curl -s https://codecov.io/bash -ssrc) #http://stackoverflow.com/questions/13116488/detailed-guide-on-using-gcov-with-cmake-cdash

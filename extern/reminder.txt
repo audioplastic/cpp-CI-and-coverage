@@ -1,1 +1,8 @@
+To ADD:
 git submodule add repo_URL extern/whatever_you_like
+
+To REMOVE:
+Since git 1.8.5.2, two commands will do:
+
+git rm the_submodule
+rm -rf .git/modules/the_submodule
