@@ -3,8 +3,8 @@ sudo: false # The explicit sudo: false will let it build in Docker (for speed) e
 language: cpp
 
 os:
-  - linux
-#  - osx
+#  - linux
+  - osx
 
 compiler:
 #  - gcc #gcc with C++11 (4.8+) support gives me some mismatched gcov version errors for coverage

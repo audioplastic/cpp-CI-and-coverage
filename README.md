@@ -6,9 +6,9 @@ Wooshy acoustic tools
 
 | CI Service | Status |
 | :---         |     :---      |
-|   Travis Clang    | [![Travis Status](https://travis-ci.org/audioplastic/decibelly.svg?branch=master)](https://travis-ci.org/audioplastic/decibelly) |
-|   Circle g++      | [![Circle Status](https://circleci.com/gh/audioplastic/decibelly.png)](https://circleci.com/gh/audioplastic/decibelly) |
-|   Appveyor MSVC   | [![Appveyor Status](https://ci.appveyor.com/api/projects/status/github/audioplastic/decibelly)](https://ci.appveyor.com/project/audioplastic/decibelly) |
+|   Travis   - OSX/clang    | [![Travis Status](https://travis-ci.org/audioplastic/decibelly.svg?branch=master)](https://travis-ci.org/audioplastic/decibelly) |
+|   Circle   - Ubuntu/g++      | [![Circle Status](https://circleci.com/gh/audioplastic/decibelly.png)](https://circleci.com/gh/audioplastic/decibelly) |
+|   Appveyor - Windows/MSVC   | [![Appveyor Status](https://ci.appveyor.com/api/projects/status/github/audioplastic/decibelly)](https://ci.appveyor.com/project/audioplastic/decibelly) |
 
 
 | Coverage Service | Status |
