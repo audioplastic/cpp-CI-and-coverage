@@ -4,22 +4,15 @@
 install:
   - git submodule init && git submodule update
 
-
 build_script:
-  - echo %CD%
   - mkdir build
-  - echo %CD%
   - ps: cd build
-  - echo %CD%
   - cmake ..
   - cmake --build .
 
 test_script:
-  - echo %CD%
   - ps: cd test
-  - echo %CD%
   - dir
   - ps: cd Debug
-  - echo %CD%
   - dir
   - all_tests
