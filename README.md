@@ -14,6 +14,6 @@ Wooshy acoustic tools
 | Coverage Service | Status |
 | :---         |     :---      |
 |   Codecov     | [![Codecov Status](https://codecov.io/github/audioplastic/decibelly/coverage.svg?branch=master)](https://codecov.io/gh/audioplastic/decibelly) |
-|   Coveralls   | [![Coveralls Status](https://coveralls.io/repos/github/audioplastic/decibelly/badge.svg?branch=master)](https://coveralls.io/github/audioplastic/decibelly?branch=master) |
+|   Coveralls   | [![Coverage Status](https://coveralls.io/repos/github/audioplastic/decibelly/badge.svg?branch=master)](https://coveralls.io/github/audioplastic/decibelly?branch=master) |
 
 
