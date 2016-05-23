@@ -1,4 +1,4 @@
-Decibelly
+Decibelly ![Language (C++)](https://img.shields.io/badge/powered_by-C++-blue.svg?style=flat)
 =========
 
 Wooshy acoustic tools
