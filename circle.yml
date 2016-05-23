@@ -5,7 +5,7 @@ checkout:
 
 dependencies:
   pre:
-    - sudo apt-get update; sudo apt-get install cmake;
+#    - sudo apt-get update; sudo apt-get install cmake;
 
 test:
   pre:
@@ -17,4 +17,4 @@ test:
     - mkdir -p $CIRCLE_TEST_REPORTS/gtest
     - build/test/all_tests --gtest_output=xml:$CIRCLE_TEST_REPORTS/gtest/gtest.xml
   post:
-    - cd build && ls -l src && bash <(curl -s https://codecov.io/bash) -psrc
+    - bash <(curl -s https://codecov.io/bash) -pbuild/src
