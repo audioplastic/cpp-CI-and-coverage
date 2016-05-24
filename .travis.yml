@@ -12,7 +12,7 @@ compiler:
 
 before_install:
   - export COVERALLS_SERVICE_NAME=travis-ci
-  - export COVERALLS_REPO_TOKEN=XTketTK9zlvjDRh6QUHSH2Mb2u1hba2BD
+  - export COVERALLS_REPO_TOKEN=Mv1FfYvUDozA0rWJvHiDZd9MIvWTT9rzB
 
 # move on from standard crusty travis default compiler
 # https://github.com/travis-ci/apt-package-whitelist/blob/master/ubuntu-precise
