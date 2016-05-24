@@ -8,3 +8,7 @@ TEST(adder, add) {
 TEST(adder, div) {
     EXPECT_EQ(adder::divide(10,2), 5);
 }
+
+TEST(adder, mult) {
+    EXPECT_EQ(adder::multi(10,2), 20);
+}
