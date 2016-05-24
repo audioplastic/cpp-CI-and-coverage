@@ -3,4 +3,4 @@ set(LIB_SRC
         adder.h
         )
 
-add_library(decibelly ${LIB_SRC})
+add_library(adder ${LIB_SRC})

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.11) #for target_include_directories
-project(decibelly)
+project(cppci)
 
 option(BUILD_TESTS "Build all tests." ON)
 option(COVERALLS "Turn on coveralls support" OFF) #better than pyton version as no sudo pip install is neededtouch sr

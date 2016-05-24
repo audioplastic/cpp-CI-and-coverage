@@ -2,8 +2,8 @@
 // Created by Nick on 20/05/2016.
 //
 
-#ifndef DECIBELLY_ADDER_H
-#define DECIBELLY_ADDER_H
+#ifndef CPPCI_ADDER_H
+#define CPPCI_ADDER_H
 
 
 class adder {
@@ -16,4 +16,4 @@ public:
 };
 
 
-#endif //DECIBELLY_ADDER_H
+#endif //CPPCI_ADDER_H
