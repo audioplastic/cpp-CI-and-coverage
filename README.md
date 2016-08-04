@@ -16,4 +16,5 @@ Wooshy acoustic tools
 |   Codecov via Circle CI    | [![codecov](https://codecov.io/gh/audioplastic/cpp-CI-and-coverage/branch/master/graph/badge.svg)](https://codecov.io/gh/audioplastic/cpp-CI-and-coverage) |
 |   Coveralls via Travis CI  | [![Coverage Status](https://coveralls.io/repos/github/audioplastic/cpp-CI-and-coverage/badge.svg?branch=master)](https://coveralls.io/github/audioplastic/cpp-CI-and-coverage?branch=master) |
 
-
+<iframe src="https://circleci.com/api/v1/project/audioplastic/cpp-CI-and-coverage/latest/artifacts/0/$CIRCLE_TEST_REPORTS/TestReport.html?branch=master
+"></iframe>
