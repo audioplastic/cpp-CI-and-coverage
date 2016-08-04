@@ -17,4 +17,6 @@ test:
     - mkdir -p $CIRCLE_TEST_REPORTS/gtest
     - build/test/all_tests --gtest_output=xml:$CIRCLE_TEST_REPORTS/gtest/gtest.xml
   post:
+    - npm install junit-viewer -g
+    - cd $CIRCLE_TEST_REPORTS/gtest && junit-viewer --results=gtest.xml --save=TestReport.html
     - bash <(curl -s https://codecov.io/bash) -pbuild/src
