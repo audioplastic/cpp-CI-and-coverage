@@ -17,3 +17,6 @@ Wooshy acoustic tools
 |   Coveralls via Travis CI  | [![Coverage Status](https://coveralls.io/repos/github/audioplastic/cpp-CI-and-coverage/badge.svg?branch=master)](https://coveralls.io/github/audioplastic/cpp-CI-and-coverage?branch=master) |
 
 <iframe src="https://circleci.com/api/v1/project/audioplastic/cpp-CI-and-coverage/latest/artifacts/0/$CIRCLE_TEST_REPORTS/gtest/TestReport.html?branch=master"></iframe>
+
+[![Test Report](https://img.shields.io/badge/Test_Report-master-blue.svg?style=flat)](https://circleci.com/api/v1/project/audioplastic/cpp-CI-and-coverage/latest/artifacts/0/$CIRCLE_TEST_REPORTS/gtest/TestReport.html?branch=master)
+
